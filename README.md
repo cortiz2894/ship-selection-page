@@ -2,7 +2,8 @@
 
 A 3D ship selection interface built with Next.js and React Three Fiber. This is the companion repository for my YouTube tutorial series where I build this feature step by step.
 
-![Ship Selection Preview](public/assets/images/Gameplay.png)
+<img width="1151" height="783" alt="preview-page-ship" src="https://github.com/user-attachments/assets/c8d9fd8c-3627-46e6-b37d-21850d2db9b8" />
+
 
 ## The Game
 
