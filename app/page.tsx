@@ -147,6 +147,7 @@ function BuddyModel({
 export default function Home() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isSceneReady, setIsSceneReady] = useState(false);
   const [selectedShipId, setSelectedShipId] = useState<string>("ranch01");
   const [displayedShipId, setDisplayedShipId] = useState<string>("ranch01");
   const [animationMode, setAnimationMode] = useState<"reveal" | "disappear">(
@@ -154,6 +155,13 @@ export default function Home() {
   );
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [transitionTimestamp, setTransitionTimestamp] = useState(0);
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+    setTimeout(() => {
+      setIsSceneReady(true);
+    }, 100);
+  };
 
   const selectedShip =
     SHIPS.find((ship) => ship.id === selectedShipId) || SHIPS[0];
@@ -198,7 +206,7 @@ export default function Home() {
         {isLoading && (
           <Loading
             minDuration={3000}
-            onLoadingComplete={() => setIsLoading(false)}
+            onLoadingComplete={handleLoadingComplete}
           />
         )}
         <div
@@ -241,7 +249,7 @@ export default function Home() {
             </div>
 
           </div>
-          <Leva />
+          <Leva collapsed/>
 
           <div className="fixed inset-0 w-screen h-screen pointer-events-none">
             <Canvas
@@ -254,13 +262,15 @@ export default function Home() {
                 <CameraController />
                 <Lights />
 
-                <ShipModel
-                  componentName={
-                    SHIPS.find((ship) => ship.id === displayedShipId)
-                      ?.component || SHIPS[0].component
-                  }
-                  mode={animationMode}
-                />
+                {isSceneReady && (
+                  <ShipModel
+                    componentName={
+                      SHIPS.find((ship) => ship.id === displayedShipId)
+                        ?.component || SHIPS[0].component
+                    }
+                    mode={animationMode}
+                  />
+                )}
                 <BaseModel transitionTimestamp={transitionTimestamp} />
                 <Effects />
               </Suspense>

@@ -37,8 +37,8 @@ export default function Loading({
           <Image
             src="/assets/images/logo-final.png"
             alt="Laser Drift: Neon Blast"
-            width={280}
-            height={100}
+            width={350}
+            height={150}
             priority
             className={styles.logo}
           />
