@@ -1,0 +1,48 @@
+{
+  "name": "nextjs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@mediapipe/camera_utils": "^0.3.1675466862",
+    "@mediapipe/hands": "^0.4.1675469240",
+    "@react-three/drei": "^9.114.3",
+    "@react-three/fiber": "^8.17.10",
+    "@react-three/postprocessing": "^2.16.3",
+    "@rive-app/react-canvas": "^4.18.2",
+    "@splinetool/loader": "^1.9.68",
+    "@splinetool/r3f-spline": "^1.0.2",
+    "@tensorflow-models/handpose": "^0.1.0",
+    "@tensorflow/tfjs": "^4.22.0",
+    "@types/node": "20.6.2",
+    "@types/react": "18.2.22",
+    "@types/react-dom": "18.2.7",
+    "autoprefixer": "10.4.15",
+    "classnames": "^2.5.1",
+    "eslint": "8.49.0",
+    "eslint-config-next": "13.5.1",
+    "firebase": "^11.4.0",
+    "gsap": "^3.12.5",
+    "leva": "^0.9.35",
+    "lucide-react": "^0.511.0",
+    "next": "^13.5.0",
+    "next-pwa": "^5.6.0",
+    "postcss": "8.4.30",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "sass": "^1.81.0",
+    "split-type": "^0.3.4",
+    "stats-js": "^1.0.1",
+    "tailwindcss": "3.3.3",
+    "three": "^0.169.0",
+    "typescript": "5.2.2"
+  },
+  "devDependencies": {
+    "@types/three": "^0.170.0"
+  }
+}

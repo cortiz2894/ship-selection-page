@@ -1,0 +1,30 @@
+/* Global cursor styles - not processed by CSS Modules */
+.typing-cursor {
+  font-family: "akatab", sans-serif;
+  font-size: 10px;
+  line-height: 16px;
+  color: #67e4e4 !important;
+  margin-left: 2px;
+  display: inline-block;
+  vertical-align: baseline;
+  animation: blink-cursor 1s steps(1, end) infinite !important;
+}
+
+@keyframes blink-cursor {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .typing-cursor {
+    font-size: 9px;
+    line-height: 14px;
+  }
+}

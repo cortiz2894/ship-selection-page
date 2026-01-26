@@ -1,0 +1,161 @@
+$cornerCut: 15px;
+
+.shipDescription {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: auto;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: self-start;
+  gap: 12px;
+  min-width: 500px;
+}
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.nameContainer {
+  padding: 8px 24px;
+  // background: rgba(0, 0, 0, 0.3);
+  // backdrop-filter: blur(5px);
+  // -webkit-backdrop-filter: blur(5px);
+  border: 2px solid #67e4e4;
+  position: relative;
+
+  // Cut corners like ButtonRetro (top-left and bottom-right)
+  clip-path: polygon(
+    $cornerCut 0,
+    100% 0,
+    100% calc(100% - #{$cornerCut}),
+    calc(100% - #{$cornerCut}) 100%,
+    0 100%,
+    0 $cornerCut
+  );
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 2px;
+    background: #67e4e4e4;
+    transform: rotate(-45deg);
+  }
+
+  &::before {
+    bottom: 0;
+    right: -14px;
+  }
+
+  &::after {
+    top: 0;
+    left: -14px;
+  }
+}
+
+@keyframes nameGlow {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.shipName {
+  font-family: "akatab", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #67e4e4;
+  text-align: center;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 1;
+}
+
+.descriptionContainer {
+  max-width: 500px;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+}
+
+.description {
+  font-family: "akatab", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #469f9f;
+  text-align: left;
+  margin: 0;
+  line-height: 16px;
+  letter-spacing: 0.3px;
+  min-height: 16px; // Prevent layout shift
+}
+
+.nextButton {
+  padding: 12px 16px;
+  border: 2px solid #67e4e4;
+  background: transparent;
+  color: #67e4e4;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  opacity: 0.7;
+  overflow: hidden;
+
+  &:hover:not(:disabled) {
+    opacity: 1;
+    background-color: rgba(103, 228, 228, 0.1);
+
+    svg {
+      transform: translateX(2px);
+    }
+  }
+
+  &:disabled {
+    opacity: 0.3;
+  }
+
+  svg {
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 2;
+  }
+}
+
+// Shine effect for next button
+.nextButtonShine {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+
+  // Gradient shine effect
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(103, 228, 228, 0.2) 30%,
+    rgba(103, 228, 228, 0.4) 50%,
+    rgba(103, 228, 228, 0.2) 70%,
+    transparent 100%
+  );
+
+  // Start position (outside left)
+  transform: translateX(-150%);
+}

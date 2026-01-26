@@ -1,0 +1,130 @@
+$cornerCut: 15px;
+
+.shipStats {
+  position: absolute;
+  left: 40px;
+  top: 0px;
+  z-index: 10;
+  pointer-events: auto;
+  opacity: 0;
+}
+
+.statsContainer {
+  width: 250px;
+  position: relative;
+}
+
+.iconWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  justify-content: center;
+  border: 2px solid #67e4e4;
+  padding: 25px;
+  position: relative;
+}
+
+.shipIcon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+}
+
+.shipName {
+  font-family: "akatab", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #67e4e4;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  text-align: center;
+}
+
+.statsGrid {
+  display: flex;
+  flex-direction: column;
+  // gap: 12px;
+}
+
+.statRow {
+  display: flex;
+  align-items: center;
+}
+
+.statLabel {
+  font-family: "akatab", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #67e4e4;
+  text-transform: uppercase;
+  min-width: 70px;
+  letter-spacing: 0.5px;
+}
+
+.statBarContainer {
+  flex: 1;
+  height: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #67e4e4;
+  position: relative;
+  overflow: hidden;
+}
+
+.statBarFill {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(103, 228, 228, 0.6) 0%,
+    rgba(103, 228, 228, 0.9) 50%,
+    rgba(103, 228, 228, 0.6) 100%
+  );
+  box-shadow: 0 0 10px rgba(103, 228, 228, 0.5);
+  transform-origin: left;
+  position: relative;
+  overflow: hidden;
+
+  // Animated shine effect
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      transparent 100%
+    );
+    animation: barShine 2s ease-in-out infinite;
+  }
+}
+
+@keyframes barShine {
+  0%,
+  100% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+}
+
+.statValue {
+  font-family: "akatab", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #67e4e4;
+  min-width: 35px;
+  text-align: right;
+}

@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Akatab:wght@400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @font-face {
+  font-family: "Rocket Rinder";
+  src: url("/assets/fonts/RocketRinder.woff2") format("woff2"),
+    url("/assets/fonts/RocketRinder.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+} */
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --color-bg1: rgb(17, 17, 17);
+  --color-bg2: rgb(38, 38, 38);
+  --color1: 80, 80, 80;
+  --color2: 90, 125, 125;
+  --color3: 50, 50, 50;
+  --color4: 66, 58, 117;
+  --color5: 45, 45, 45;
+  --color-interactive: 70, 70, 70;
+  --circle-size: 80%;
+  --blending: hard-light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background-color: black;
+  /* background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb)); */
+}
+
+/* Prevent sticky hover states on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .mobile-no-hover * {
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    user-select: none !important;
+  }
+}
+
+/* Remove default touch highlights */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+/* Improve touch performance */
+/* .touch-manipulation {
+  touch-action: manipulation;
+} */
+
+footer {
+  bottom: 0;
+  padding-bottom: 2em;
+  padding-top: 2em;
+  max-height: 15vh;
+  /* background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%) */
+}
+
+/* Accessibility: Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
