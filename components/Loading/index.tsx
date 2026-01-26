@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import styles from "./Loading.module.scss";
 
 interface LoadingProps {
@@ -33,8 +34,14 @@ export default function Loading({
     <div className={`${styles.loadingContainer} ${isFading ? styles.fadeOut : ""}`}>
       <div className={styles.content}>
         <div className={styles.logoContainer}>
-          <span className={styles.logoText}>LASER DRIFT</span>
-          <span className={styles.logoSubtext}>NEON BLAST</span>
+          <Image
+            src="/assets/images/logo-final.png"
+            alt="Laser Drift: Neon Blast"
+            width={280}
+            height={100}
+            priority
+            className={styles.logo}
+          />
         </div>
 
         <div className={styles.loadingBarContainer}>

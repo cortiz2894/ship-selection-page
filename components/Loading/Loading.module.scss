@@ -27,25 +27,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
 }
 
-.logoText {
-  font-family: "Akatab", sans-serif;
-  font-size: 32px;
-  font-weight: 700;
-  letter-spacing: 8px;
-  color: #67e4e4;
-  text-shadow: 0 0 20px rgba(103, 228, 228, 0.5);
-}
-
-.logoSubtext {
-  font-family: "Akatab", sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 12px;
-  color: #67e4e4;
-  opacity: 0.6;
+.logo {
+  filter: drop-shadow(0 0 20px rgba(103, 228, 228, 0.4));
 }
 
 .loadingBarContainer {
