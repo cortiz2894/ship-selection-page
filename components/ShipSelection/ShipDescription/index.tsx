@@ -9,7 +9,6 @@ import { Ship } from "@/constants/ships";
 import { ChevronRight } from "lucide-react";
 import { MenuAudioManager } from "@/utils/audioMenu";
 
-// Register GSAP plugins
 gsap.registerPlugin(TextPlugin);
 
 interface ShipDescriptionProps {
