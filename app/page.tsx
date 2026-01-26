@@ -25,6 +25,7 @@ import CameraController from "@/components/ShipSelection/components/CameraContro
 import { Effects } from "@/components/ShipSelection/components/Effects";
 import SoundEffects from "@/components/SoundEffects";
 import { GameProvider } from "@/context/game-context";
+import Loading from "@/components/Loading";
 
 function ShipModel({
   componentName,
@@ -145,6 +146,7 @@ function BuddyModel({
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [selectedShipId, setSelectedShipId] = useState<string>("ranch01");
   const [displayedShipId, setDisplayedShipId] = useState<string>("ranch01");
   const [animationMode, setAnimationMode] = useState<"reveal" | "disappear">(
@@ -193,6 +195,12 @@ export default function Home() {
   return (
     <GameProvider gameMode="classic" gameState="menu" setGameState={() => {}}>
       <SoundEffects>
+        {isLoading && (
+          <Loading
+            minDuration={3000}
+            onLoadingComplete={() => setIsLoading(false)}
+          />
+        )}
         <div
           ref={containerRef}
           className="relative w-full h-screen overflow-hidden flex justify-center pt-10 py-20"
