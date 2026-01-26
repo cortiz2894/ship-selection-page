@@ -4,9 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
 import styles from "./ShipDescription.module.scss";
-import "./cursor.css"; // Global cursor styles
+import "./cursor.css";
 import { Ship } from "@/constants/ships";
-import { ButtonRetro } from "@/components/ButtonRetro";
 import { ChevronRight } from "lucide-react";
 import { MenuAudioManager } from "@/utils/audioMenu";
 
