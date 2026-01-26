@@ -35,7 +35,6 @@ Subscribe to my channel for more game dev content: [@cortizdev](https://www.yout
 - Ship stats and description panels
 - Particle background system
 - Sound effects integration
-- Responsive design
 
 ## Getting Started
 
