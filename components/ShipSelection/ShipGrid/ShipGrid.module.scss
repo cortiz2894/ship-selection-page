@@ -8,6 +8,14 @@ $cornerCut: 15px;
   transform: translateX(40);
   pointer-events: auto;
   opacity: 0;
+
+  // Mobile responsive
+  @media (max-width: 768px) {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 60px;
+    width: calc(100% - 40px);
+  }
 }
 
 .gridContainer {
@@ -56,6 +64,13 @@ $cornerCut: 15px;
     0 100%,
     0 $cornerCut
   );
+
+  // Mobile responsive
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 12px;
+    padding-bottom: 24px;
+  }
 }
 
 .shipItem {
@@ -92,6 +107,12 @@ $cornerCut: 15px;
   &.selected {
     opacity: 1;
     background: rgba(103, 228, 228, 0.15);
+  }
+
+  // Mobile responsive
+  @media (max-width: 768px) {
+    height: 45px;
+    padding: 4px;
   }
 }
 
@@ -138,6 +159,12 @@ $cornerCut: 15px;
     width: 100%;
     height: 100%;
   }
+
+  // Mobile responsive
+  @media (max-width: 768px) {
+    width: 35px;
+    height: 35px;
+  }
 }
 .lockIcon {
   padding: 5px;
@@ -170,6 +197,11 @@ $cornerCut: 15px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   line-height: 1.2;
+
+  // Mobile responsive
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 }
 
 .specialPower {
@@ -182,4 +214,9 @@ $cornerCut: 15px;
   letter-spacing: 0.3px;
   line-height: 1.2;
   font-style: italic;
+
+  // Mobile responsive
+  @media (max-width: 768px) {
+    font-size: 10px;
+  }
 }

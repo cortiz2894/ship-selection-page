@@ -228,7 +228,7 @@ export default function Home() {
               isTransitioning={isTransitioning}
               onNextShip={handleNextShip}
             />
-            <div className="absolute top-[40px] right-[40px] z-10 flex flex-col gap-4">
+            <div className="absolute top-[40px] right-[40px] z-10 hidden md:flex flex-col gap-4">
               <ShipFeature
                 ship={selectedShip}
                 isTransitioning={isTransitioning}

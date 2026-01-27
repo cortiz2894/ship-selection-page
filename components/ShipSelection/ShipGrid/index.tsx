@@ -96,7 +96,7 @@ export default function ShipGrid({
   return (
     <div ref={containerRef} className={styles.shipGrid}>
       <div className={styles.gridContainer}>
-        <h5 className="text-lg font-[500] font-akatab uppercase text-[#67e4e4] mb-2">
+        <h5 className="text-base md:text-lg font-[500] font-akatab uppercase text-[#67e4e4] mb-2">
           SHIPS
         </h5>
         <div className="flex flex-col gap-2">

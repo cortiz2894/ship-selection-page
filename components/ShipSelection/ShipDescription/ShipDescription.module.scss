@@ -13,6 +13,14 @@ $cornerCut: 15px;
   align-items: self-start;
   gap: 12px;
   min-width: 500px;
+
+  // Mobile responsive
+  @media (max-width: 768px) {
+    min-width: unset;
+    width: calc(100% - 32px);
+    max-width: 400px;
+    gap: 8px;
+  }
 }
 
 .headerContainer {
@@ -60,6 +68,11 @@ $cornerCut: 15px;
     top: 0;
     left: -14px;
   }
+
+  // Mobile responsive
+  @media (max-width: 768px) {
+    padding: 6px 16px;
+  }
 }
 
 @keyframes nameGlow {
@@ -83,6 +96,12 @@ $cornerCut: 15px;
   letter-spacing: 2px;
   position: relative;
   z-index: 1;
+
+  // Mobile responsive
+  @media (max-width: 768px) {
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
 }
 
 .descriptionContainer {
@@ -90,6 +109,11 @@ $cornerCut: 15px;
   position: relative;
   display: flex;
   align-items: flex-start;
+
+  // Mobile responsive
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
 }
 
 .description {
@@ -135,6 +159,11 @@ $cornerCut: 15px;
     transition: transform 0.3s ease;
     position: relative;
     z-index: 2;
+  }
+
+  // Mobile responsive
+  @media (max-width: 768px) {
+    padding: 8px 12px;
   }
 }
 

@@ -1,14 +1,33 @@
 import { useFrame, useThree } from "@react-three/fiber";
 import { useControls } from "leva";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
+
+const DESKTOP_CAMERA_DISTANCE = 5;
+const MOBILE_CAMERA_DISTANCE = 6.8;
+const MOBILE_BREAKPOINT = 768;
 
 export default function CameraController() {
   const { camera } = useThree();
+  const [isMobile, setIsMobile] = useState(false);
   const mousePosition = useRef({ x: 0, y: 0 });
-  const targetPosition = useRef({ x: 0, y: 2, z: 5 });
-  const currentPosition = useRef({ x: 0, y: 2, z: 5 });
+  const targetPosition = useRef({ x: 0, y: 2, z: DESKTOP_CAMERA_DISTANCE });
+  const currentPosition = useRef({ x: 0, y: 2, z: DESKTOP_CAMERA_DISTANCE });
   const lookAtTarget = useRef(new THREE.Vector3(0, 0, 0));
+
+  // Detect mobile on mount and resize
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const baseDistance = isMobile ? MOBILE_CAMERA_DISTANCE : DESKTOP_CAMERA_DISTANCE;
 
   const cameraControls = useControls("Camera Controls", {
     rotationIntensity: {
@@ -30,7 +49,7 @@ export default function CameraController() {
       label: "Enable Mouse Control",
     },
     cameraDistance: {
-      value: 5,
+      value: baseDistance,
       min: 2,
       max: 10,
       step: 0.1,
@@ -52,6 +71,11 @@ export default function CameraController() {
     },
   });
 
+  // Update camera distance when mobile state changes
+  useEffect(() => {
+    targetPosition.current.z = baseDistance;
+  }, [baseDistance]);
+
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
       if (!cameraControls.enableMouseControl) return;
@@ -63,7 +87,7 @@ export default function CameraController() {
       targetPosition.current.x =
         -mousePosition.current.x * cameraControls.rotationIntensity;
       targetPosition.current.y = cameraControls.cameraHeight;
-      targetPosition.current.z = cameraControls.cameraDistance;
+      targetPosition.current.z = baseDistance;
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -74,7 +98,7 @@ export default function CameraController() {
   }, [
     cameraControls.enableMouseControl,
     cameraControls.rotationIntensity,
-    cameraControls.cameraDistance,
+    baseDistance,
     cameraControls.cameraHeight,
   ]);
 
@@ -94,7 +118,7 @@ export default function CameraController() {
     );
     currentPosition.current.z = THREE.MathUtils.lerp(
       currentPosition.current.z,
-      targetPosition.current.z,
+      baseDistance,
       cameraControls.momentum
     );
 
