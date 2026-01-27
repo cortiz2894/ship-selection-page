@@ -2,7 +2,7 @@
 
 This repository is shared for **educational purposes only** as companion code for my [YouTube tutorial series](https://www.youtube.com/playlist?list=PLA-Yd8pF2sxa5ZbajPLnstGwbxmv2xaJ6).
 
-**Pull requests and contributions are not accepted.**
+**Pull requests and contributions are accepted.**
 
 Feel free to:
 - Clone or download the code
